@@ -1,12 +1,12 @@
 # 第2次作業-作業-HW2
 >
->學號：1234567
+>學號：112111205
 ><br />
->姓名：王小明
+>姓名：鄭宇辰
 ><br />
 >作業撰寫時間：180 (mins，包含程式撰寫時間)
 ><br />
->最後撰寫文件日期：2023/09/22
+>最後撰寫文件日期：2024/10/9
 >
 
 本份文件包含以下主題：(至少需下面兩項，若是有多者可以自行新增)
@@ -57,10 +57,80 @@ public void mt_getResult(){
 
 Ans:
 
-    a.
+```py
+from typing import List
 
+def getResult():
+    # 宣告鍵盤矩陣 alphabet1 和 alphabet2
+    alphabet1: List[List[chr]] = [
+        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+        ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':'],
+        ['Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?'],
+    ]
+    
+    alphabet2: List[List[chr]] = [
+        ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'],
+        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+        ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':'],
+        ['Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?'],
+    ]
+    
+    # 輸入測試筆數
+    n = int(input("請輸入測試筆數 N: "))
+    
+    for _ in range(n):
+        # 輸入符號和方向
+        value, direction = input("請輸入 符號 和 方向 (1:上，2:下，3:右，4:左): ").split()
+        direction = int(direction)
+        found = False
+        
+        # alphabet1 來尋找 value 的位置
+        for i in range(len(alphabet1)):
+            if value in alphabet1[i]:
+                j = alphabet1[i].index(value)
+                found = True
+                
+                # 根據 direction 移動並在 alphabet1 中找出新位置的字符
+                if direction == 1:  # 上
+                    new_value = alphabet1[i-1][j]
+                elif direction == 2:  # 下
+                    new_value = alphabet1[i+1][j]
+                elif direction == 3:  # 右
+                    new_value = alphabet1[i][j+1]
+                elif direction == 4:  # 左
+                    new_value = alphabet1[i][j-1]
+                else:
+                    new_value = value
+                
+                print(new_value)
+                break
+        
+        # 如果在 alphabet1 沒找到，再在 alphabet2 中查找
+        if not found:
+            for i in range(len(alphabet2)):
+                if value in alphabet2[i]:
+                    j = alphabet2[i].index(value)
+                    
+                    # 根據 direction 移動並找出新位置的字符
+                    if direction == 1:  # 上
+                        new_value = alphabet2[i-1][j]
+                    elif direction == 2: # 下
+                        new_value = alphabet2[i+1][j]
+                    elif direction == 3: # 右
+                        new_value = alphabet2[i][j+1]
+                    elif direction == 4:  # 左
+                        new_value = alphabet2[i][j-1]
+                    else:
+                        new_value = value
+                    
+                    print(new_value)
+                    break
 
-    b.
+# 執行函式
+getResult()
+
+```
 
 
 
@@ -69,17 +139,44 @@ Ans:
 
 
 Ans:
+```py
+def missing_number(nums):
+    n = len(nums)
+    total_sum = n * (n + 1) // 2 
+    array_sum = sum(nums) #計算數組內總和
+    return total_sum - array_sum 
+
+# 測試範例
+print(missing_number([3, 0, 1]))  # 輸出: 2
+print(missing_number([9, 6, 4, 2, 3, 5, 7, 0, 1]))  # 輸出: 8
+
+```
 
 
 3. 請回答下面問題：
 
 Ans:
 
-    a. 
+    a.
+``` 
+    f(n)=2^n+1
+    g(n)=2^n
+    f(n)<O(g(n))
+    2^n+1 <= c*2^n
+    2^n+1 <= c*2^n #(2^n相消)
+    2^1 <= c(成立)
+```
 
 
     b. 
-
+```
+    f(n)=2^2n
+    g(n)=2^n
+    f(n)<=O(g(n))
+    2^2n <= c*g(n)
+    2^2n <= c*2^n #(2^n相消)
+    2^n <= c (不成立)
+```
 4. 請問以下各函式，在進行呼叫後，請計算(1)執行次數T(n)，並(2)透過執行次數判斷時間複雜度為何(請用Big-Oh進行表示)？
 
 Ans:
