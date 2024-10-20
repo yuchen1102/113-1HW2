@@ -91,7 +91,7 @@ def getResult():
                 j = alphabet1[i].index(value)
                 found = True
                 
-                # 根據 direction 移動並在 alphabet1 中找出新位置的字符
+                # 根據 direction 的數字 輸出對應方向的符號
                 if direction == 1:  # 上
                     new_value = alphabet1[i-1][j]
                 elif direction == 2:  # 下
@@ -106,13 +106,12 @@ def getResult():
                 print(new_value)
                 break
         
-        # 如果在 alphabet1 沒找到，再在 alphabet2 中查找
+        # 如果在 alphabet1 沒找到，再在 alphabet2 中找
         if not found:
             for i in range(len(alphabet2)):
                 if value in alphabet2[i]:
                     j = alphabet2[i].index(value)
                     
-                    # 根據 direction 移動並找出新位置的字符
                     if direction == 1:  # 上
                         new_value = alphabet2[i-1][j]
                     elif direction == 2: # 下
@@ -139,7 +138,7 @@ getResult()
 
 
 Ans:
-```py
+```py hw2.py
 def missing_number(nums):
     n = len(nums)
     total_sum = n * (n + 1) // 2 
@@ -164,7 +163,7 @@ Ans:
     f(n)<O(g(n))
     2^n+1 <= c*2^n
     2^n+1 <= c*2^n #(2^n相消)
-    2^1 <= c(成立)
+    2^1 <= c (成立)
 ```
 
 
@@ -182,21 +181,25 @@ Ans:
 Ans:
 
     a. 
-        (1)  
-        (2)
-
+```
+        (1) T(n) = n^2 + 4n + 1 + (n^2+3n)/2
+        (2) O(T(n)) = O(n^2)
+```
     b.
-        (1)  
-        (2)
-
+```
+        (1) T(n) = 3*floor(log_{2}^{n})+4
+        (2) O(T(n)) = O(log{2}^{n})
+```
     c.
-        (1)  
-        (2)
-
+```
+        (1) 
+        (2) 
+```
     d.
+```
         (1)  
         (2)
-
+```
 
 
 
