@@ -6,7 +6,7 @@
 ><br />
 >作業撰寫時間：180 (mins，包含程式撰寫時間)
 ><br />
->最後撰寫文件日期：2024/10/9
+>最後撰寫文件日期：2024/10/20
 >
 
 本份文件包含以下主題：(至少需下面兩項，若是有多者可以自行新增)
@@ -61,7 +61,7 @@ Ans:
 from typing import List
 
 def getResult():
-    # 宣告鍵盤矩陣 alphabet1 和 alphabet2
+    # alphabet1 和 alphabet2
     alphabet1: List[List[chr]] = [
         ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
         ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -85,7 +85,7 @@ def getResult():
         direction = int(direction)
         found = False
         
-        # alphabet1 來尋找 value 的位置
+        # 先從 alphabet1 來尋找 value 的位置
         for i in range(len(alphabet1)):
             if value in alphabet1[i]:
                 j = alphabet1[i].index(value)
@@ -106,7 +106,7 @@ def getResult():
                 print(new_value)
                 break
         
-        # 如果在 alphabet1 沒找到，再在 alphabet2 中找
+        # 如果在 alphabet1 沒找到，再從 alphabet2 中找
         if not found:
             for i in range(len(alphabet2)):
                 if value in alphabet2[i]:
@@ -181,28 +181,44 @@ Ans:
 Ans:
 
     a. 
-```
-        (1) T(n) = n^2 + 4n + 1 + (n^2+3n)/2
-        (2) O(T(n)) = O(n^2)
-```
+
+(1) $T(n) = n^2 + 4n + 1 + (n^2+3n)/2$
+
+(2) $O(T(n)) = O(n^2)$
+
     b.
-```
-        (1) T(n) = 3*floor(log_{2}^{n})+4
-        (2) O(T(n)) = O(log{2}^{n})
-```
+
+(1) $T(n) = 3*\lfloor(log_{2}^{n})\rfloor+4$
+
+(2) $O(T(n)) = O(log{2}^{n})$
+
     c.
-```
-        (1) 
-        (2) 
-```
+
+(1) $T(n,m) = (3m+3)\lfloor(log{2}n)\rfloor+3m+4$
+
+(2) $ T(n,m) = O(mlog{2}^{n}) $
+
     d.
-```
-        (1)  
-        (2)
-```
+
+(1) $(3n+3)\lfloor(log{2}n)\rfloor+3n+4\ge T(n) \ge(\frac{3n}{2}+3)\lfloor(log{2}n)\rfloor+\frac{3n}{2}+4$
+
+(2) $T(n)=O(nlog_{2}n)$
+
 
 
 
 ## 個人認為完成作業須具備觀念
 
 開始寫說明，需要說明本次練習需學會那些觀念 (需寫成文章，需最少50字，並且文內不得有你、我、他三種文字)且必須提供完整與練習相關過程的notion筆記連結
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>

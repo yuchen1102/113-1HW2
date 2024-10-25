@@ -25,13 +25,13 @@ def getResult():
         direction = int(direction)
         found = False
         
-        # alphabet1 來尋找 value 的位置
+        # 先到 alphabet1 尋找 value 的位置
         for i in range(len(alphabet1)):
             if value in alphabet1[i]:
                 j = alphabet1[i].index(value)
                 found = True
                 
-                # 根據 direction 移動並在 alphabet1 中找出新位置的字符
+                # 根據 direction 的數字 輸出對應方向的符號
                 if direction == 1:  # 上
                     new_value = alphabet1[i-1][j]
                 elif direction == 2:  # 下
@@ -46,13 +46,12 @@ def getResult():
                 print(new_value)
                 break
         
-        # 如果在 alphabet1 沒找到，再在 alphabet2 中查找
+        # 如果 alphabet1 沒找到，再到 alphabet2 中找
         if not found:
             for i in range(len(alphabet2)):
                 if value in alphabet2[i]:
                     j = alphabet2[i].index(value)
                     
-                    # 根據 direction 移動並找出新位置的字符
                     if direction == 1:  # 上
                         new_value = alphabet2[i-1][j]
                     elif direction == 2: # 下
